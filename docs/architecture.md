@@ -61,6 +61,7 @@ php -S localhost:8000
 1. Installer Node.js dans le dossier frontend:
 ```bash
 cd frontend
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 npm install
 npm run dev
 ```
@@ -74,6 +75,7 @@ PHP Server
 PHP Debug
 EditorConfig
 ESLint
+PHP Intelephense
 
 ## 6. Workflow Git recommandé
 Créer une branche par fonctionnalité (feature/slug-generation, feature/frontend-ui, etc.)
