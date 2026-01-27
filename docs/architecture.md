@@ -1,6 +1,5 @@
 # Architecture du projet Short URL
 
-
 ## 1. Structure des dossiers
 short-url/
 │
@@ -19,13 +18,21 @@ short-url/
 ├── docs/
 │   └── architecture.md
 │
-├── frontend/               # Frontend moderne Next.js / React
-│   ├── pages/              # Pages de l'application
-│   ├── components/         # Composants React
+├── frontend/               # Frontend moderne Next.js / React (App Router)
+│   ├── app/                # Pages App Router
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── page.tsx        # Page principale "/"
+│   ├── components/         # Composants React (UrlForm, Alert, etc.)
+│   ├── lib/                # Fonctions utilitaires (API fetch)
+│   │   └── api.ts
+│   ├── styles/             # CSS spécifiques aux composants
 │   ├── public/             # Assets (images, favicon, etc.)
-│   └── next.config.js      # Configuration Next.js
+│   ├── next.config.js      # Configuration Next.js
+│   └── tsconfig.json       # Config TypeScript
 │
 └── README.md
+
 
 
 ## 2. API
