@@ -4,18 +4,27 @@
 ## 1. Structure des dossiers
 short-url/
 │
-├── api/ # Code PHP du backend
-│ ├── public/ # Point d'entrée de l'API
-│ ├── src/
-│ │ ├── Controllers/
-│ │ ├── Services/
-│ │ ├── Models/
-│ │ └── Config/
-│ └── .htaccess
+├── api/                    # Code PHP du backend
+│   ├── public/             # Point d'entrée de l'API
+│   ├── src/
+│   │   ├── Controllers/    # Logique des endpoints
+│   │   ├── Services/       # Services métiers (slug, validation, DB)
+│   │   ├── Models/         # Modèles de données
+│   │   └── Config/         # Configuration DB, constants
+│   └── .htaccess           # Config Apache (vide pour l'instant)
+│
 ├── database/
-│ └── schema.sql # Structure de la base de données
+│   └── schema.sql           # Structure de la base de données
+│
 ├── docs/
-│ └── architecture.md
+│   └── architecture.md
+│
+├── frontend/               # Frontend moderne Next.js / React
+│   ├── pages/              # Pages de l'application
+│   ├── components/         # Composants React
+│   ├── public/             # Assets (images, favicon, etc.)
+│   └── next.config.js      # Configuration Next.js
+│
 └── README.md
 
 
@@ -37,6 +46,8 @@ Table principale : `short_urls`
 
 
 ## 4. Lancer le projet localement
+
+### Backend PHP
 1. Installer XAMPP
 2. Démarrer Apache et MySQL
 3. Importer `database/schema.sql` dans phpMyAdmin # Pour y accéder faire http://localhost/phpmyadmin
@@ -46,8 +57,29 @@ cd api/public
 php -S localhost:8000 
 ```
 
-## 5. Extensions Vs Code recommandées:
-- PHP Intelephense
-- PHP Server
-- PHP Debug
-- EditorConfig
+### Frontend Next.js
+1. Installer Node.js dans le dossier frontend:
+```bash
+cd frontend
+npm install
+npm run dev
+```
+2. Accéder à l’interface: http://localhost:3000
+3. Les appels API se font vers http://localhost:8000
+
+
+## 5. Extensions VS Code recommandées
+PHP Intelephense
+PHP Server
+PHP Debug
+EditorConfig
+ESLint
+
+## 6. Workflow Git recommandé
+Créer une branche par fonctionnalité (feature/slug-generation, feature/frontend-ui, etc.)
+Commit régulier + messages clairs
+Merge dans main après revue par un autre membre (Faire des Pull Request)
+
+Déploiement futur:
+Backend → PlanetHoster
+Frontend → À voir
