@@ -1,0 +1,8 @@
+CREATE TABLE short_urls (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    slug VARCHAR(16) NOT NULL UNIQUE,
+    original_url TEXT NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    expires_at DATETIME NULL,
+    clicks INT DEFAULT 0
+);
