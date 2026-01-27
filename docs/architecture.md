@@ -43,4 +43,11 @@ Table principale : `short_urls`
 4. Lancer le serveur local:
 ```bash
 cd api/public
-php -S localhost:8000
+php -S localhost:8000 
+```
+
+## 5. Extensions Vs Code recommandées:
+- PHP Intelephense
+- PHP Server
+- PHP Debug
+- EditorConfig

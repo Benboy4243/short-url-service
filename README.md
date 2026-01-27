@@ -22,3 +22,4 @@ A URL shortening service that transforms long and complex links into short, read
 - Cron (optional, for cleanup tasks)
 
 ## 📁 Project Structure
+Voir ./docs/architecture.md
