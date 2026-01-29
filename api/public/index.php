@@ -15,10 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 
-require_once __DIR__ . '/../Config/database.php'; // fournit le $pdo
-require_once __DIR__ . '/../Services/Database.php';
-require_once __DIR__ . '/../Services/ShortUrlService.php';
-require_once __DIR__ . '/../Controllers/ShortUrlController.php';
+require_once __DIR__ . '/../src/Config/database.php'; // fournit le $pdo
+require_once __DIR__ . '/../src/Services/Database.php';
+require_once __DIR__ . '/../src/Services/ShortUrlService.php';
+require_once __DIR__ . '/../src/Controllers/ShortUrlController.php';
 
 $dbService = new Database($pdo);
 $shortService = new ShortUrlService($dbService);

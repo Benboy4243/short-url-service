@@ -17,7 +17,7 @@ class ShortUrlController
     {
         $data = json_decode(file_get_contents('php://input'), true);
         $url = trim($data['url'] ?? '');
-        // Ici on vera si l'objet JSOn enovoyé par le frontend à une date d'expiration.
+        // Ici on vera si l'objet JSON enovoyé par le frontend à une date d'expiration.
         $expiresAt = $data['expiresAt'] ?? null; 
 
         if ($url === '') {
@@ -50,7 +50,7 @@ class ShortUrlController
     {
         $shortUrl = $this->service->getOriginalUrl($slug);
 
-        if (!$shortUrl || $shortUrl->isExpired() != null ) {
+        if (!$shortUrl || $shortUrl->isExpired()) {
             http_response_code(404);
             echo "Lien introuvable ou expiré.";
             return;
