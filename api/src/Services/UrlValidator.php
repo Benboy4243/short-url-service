@@ -72,6 +72,26 @@ class UrlValidator
         ];
 
     }
-
+    /**
+     * Retourne un message pour un code HTTP
+     * 
+     * @param int
+     * @return string
+     */
+    private static function getStatusMessage(int $statusCode): string
+    {
+        return match(true) {
+            $statusCode === 0 => 'Serveur injoignable',
+            $statusCode >= 200 && $statusCode < 300 => 'URL valide et accessible',
+            $statusCode >= 300 && $statusCode < 400 => 'URL valide (redirection)',
+            $statusCode === 400 => 'Requête invalide',
+            $statusCode === 401 => 'Authentification requise',
+            $statusCode === 403 => 'Accès interdit',
+            $statusCode === 404 => 'URL non trouvée',
+            $statusCode >= 400 && $statusCode < 500 => 'Erreur client (code ' . $statusCode . ')',
+            $statusCode >= 500 && $statusCode < 600 => 'Erreur serveur (code ' . $statusCode . ')',
+            default => 'Code de statut inconnu: ' . $statusCode
+        };
+    }
     
 }
