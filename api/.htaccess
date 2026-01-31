@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# Empêche l'accès direct aux fichiers sensibles
+<FilesMatch "\.(env|sql|log|ini|json)$">
+  Require all denied
+</FilesMatch>
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
+
