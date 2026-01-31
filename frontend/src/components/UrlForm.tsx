@@ -1,6 +1,6 @@
-'use client';
 import React, { useState } from 'react';
-import { shortenUrl, ShortUrlResponse } from '../lib/api';
+import { shortenUrl } from '../lib/api';
+import type { ShortUrlResponse } from '../lib/api';
 import "../styles/UrlForm.css";
 
 export default function UrlForm() {

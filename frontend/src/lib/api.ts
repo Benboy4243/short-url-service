@@ -7,7 +7,7 @@ export interface ShortUrlResponse {
   clicks: number;
 }
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL;
+const API_URL = import.meta.env.VITE_API_URL as string;
 
 export async function shortenUrl(url: string, expiresAt?: string): Promise<ShortUrlResponse> {
   const response = await fetch(`${API_URL}/shorten`, {
