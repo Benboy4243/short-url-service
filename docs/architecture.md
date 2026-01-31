@@ -1,37 +1,45 @@
 # Architecture du projet Short URL
 
 ## 1. Structure des dossiers
-short-url/
+short-url-service/
+├── .git/                                  # Dossier Git (historique & configuration)
+├── .gitignore                             # Fichier d'exclusion Git
+├── README.md                              # Documentation principale
 │
-├── api/                    # Code PHP du backend
-│   ├── public/             # Point d'entrée de l'API
-│   ├── src/
-│   │   ├── Controllers/    # Logique des endpoints
-│   │   ├── Services/       # Services métiers (slug, validation, DB)
-│   │   ├── Models/         # Modèles de données
-│   │   └── Config/         # Configuration DB, constants
-│   └── .htaccess           # Config Apache (vide pour l'instant)
+├── api/                                   # Backend PHP
+│   ├── index.php                          # Point d'entrée API
+│   └── src/
+│       ├── Config/
+│       │   └── database.php               # Configuration de la base de données
+│       ├── Controllers/
+│       ├── Models/
+│       └── Services/
+│           ├── Database.php               # Service de gestion BD
 │
-├── database/
-│   └── schema.sql           # Structure de la base de données
+├── database/                              # Base de données
+│   └── schema.sql                         # Schéma SQL (création tables)
 │
-├── docs/
-│   └── architecture.md
+├── docs/                                  # Documentation
+│   └── architecture.md                    # Description de l'architecture
 │
-├── frontend/               # Frontend moderne Next.js / React (App Router)
-│   ├── app/                # Pages App Router
-│   │   ├── globals.css
-│   │   ├── layout.tsx
-│   │   └── page.tsx        # Page principale "/"
-│   ├── components/         # Composants React (UrlForm, Alert, etc.)
-│   ├── lib/                # Fonctions utilitaires (API fetch)
-│   │   └── api.ts
-│   ├── styles/             # CSS spécifiques aux composants
-│   ├── public/             # Assets (images, favicon, etc.)
-│   ├── next.config.js      # Configuration Next.js
-│   └── tsconfig.json       # Config TypeScript
-│
-└── README.md
+└── frontend/                              # Frontend React + TypeScript + Vite
+    ├── index.html                         # Fichier HTML principal
+    ├── package.json                       # Dépendances Node.js
+    ├── vite.config.ts                     # Configuration Vite
+    ├── eslint.config.js                   # Configuration ESLint
+    ├── tsconfig.json                      # Configuration TypeScript global
+    ├── tsconfig.app.json                  # Configuration TypeScript app
+    ├── tsconfig.node.json                 # Configuration TypeScript Node
+    ├── README.md                          # Documentation frontend
+    ├── public/                            # Fichiers statiques
+    └── src/
+        ├── main.tsx                       # Point d'entrée React
+        ├── index.css                      # Styles globaux
+        ├── assets/                        # Ressources (images, etc.)
+        ├── components/                    # Composants React
+        ├── lib/
+        │   └── api.ts                     # Client API
+        └── styles/
 
 
 

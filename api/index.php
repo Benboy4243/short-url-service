@@ -13,7 +13,7 @@ $request = str_replace($basePath, '', $requestUri);
 if ($request === '') $request = '/';
 
 $allowedOrigins = [
-    'http://localhost:3000',
+    'http://localhost:5173',
     'https://www.zeroaheros.ca'
 ];
 if (isset($_SERVER['HTTP_ORIGIN']) && in_array($_SERVER['HTTP_ORIGIN'], $allowedOrigins, true)) {

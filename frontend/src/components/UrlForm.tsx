@@ -5,7 +5,7 @@ import "../styles/UrlForm.css";
 
 export default function UrlForm() {
   const [url, setUrl] = useState('');
-  const [expiresToggle, setExpiresToggle] = useState(false);
+  const [expiresToggle, setExpiresToggle] = useState(true);
   const [result, setResult] = useState<ShortUrlResponse | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
