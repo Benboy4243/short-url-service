@@ -2,14 +2,16 @@
 declare(strict_types=1);
 
 // Debug temporaire
-// ini_set('display_errors', 1);
-// ini_set('display_startup_errors', 1);
-// error_reporting(E_ALL);
+ini_set('display_errors', '0');
+ini_set('log_errors', '1');
+error_reporting(E_ALL);
+
 
 // Base path
 // $basePath = '/api/short-url';
-// $requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-// $request = str_replace($basePath, '', $requestUri);
+$basePath = '';
+$requestUri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$request = str_replace($basePath, '', $requestUri);
 // if ($request === '') $request = '/';
 
 // $allowedOrigins = [
@@ -20,7 +22,7 @@ declare(strict_types=1);
 //     header('Access-Control-Allow-Origin: ' . $_SERVER['HTTP_ORIGIN']);
 // }
 
-header('Access-Control-Allow-Origin: http://localhost:3000');
+header('Access-Control-Allow-Origin: http://localhost:5173');
 header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
 header('Content-Type: application/json');

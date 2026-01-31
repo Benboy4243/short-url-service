@@ -80,7 +80,7 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 npm install
 npm run dev
 ```
-2. Accéder à l’interface: http://localhost:3000
+2. Accéder à l’interface: http://localhost:5173
 3. Les appels API se font vers http://localhost:8000
 
 
