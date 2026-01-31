@@ -72,13 +72,21 @@ export default function UrlForm() {
       {result && (
         <p className="success">
           Lien court:{" "}
-          <a
+          {/* <a
             href={`${window.location.origin}/${result.slug}`}
             target="_blank"
             rel="noopener noreferrer"
           >
             {`${window.location.origin}/${result.slug}`}
+          </a> */}
+
+          <a
+            href={`https://www.zeroaheros.ca/api/short-url/${result.slug}`}
+            target="_blank"
+            rel="noopener noreferrer">
+            {`https://www.zeroaheros.ca/api/short-url/${result.slug}`}
           </a>
+
         </p>
       )}
     </div>

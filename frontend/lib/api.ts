@@ -7,12 +7,12 @@ export interface ShortUrlResponse {
   clicks: number;
 }
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
 export async function shortenUrl(url: string, expiresAt?: string): Promise<ShortUrlResponse> {
-  const response = await fetch('http://localhost:8000/shorten', {
+  const response = await fetch(`${API_URL}/shorten`, {
     method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ url, expiresAt }),
   });
 
@@ -24,3 +24,21 @@ export async function shortenUrl(url: string, expiresAt?: string): Promise<Short
   const json = await response.json();
   return json.data;
 }
+
+// export async function shortenUrl(url: string, expiresAt?: string): Promise<ShortUrlResponse> {
+//   const response = await fetch('http://localhost:8000/shorten', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify({ url, expiresAt }),
+//   });
+
+//   if (!response.ok) {
+//     const error = await response.json();
+//     throw new Error(error.error || 'Erreur inconnue');
+//   }
+
+//   const json = await response.json();
+//   return json.data;
+// }
