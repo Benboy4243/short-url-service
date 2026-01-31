@@ -70,25 +70,19 @@ export default function UrlForm() {
 
       {error && <p className="error">{error}</p>}
       {result && (
-        <p className="success">
-          Lien court:{" "}
-          {/* <a
-            href={`${window.location.origin}/${result.slug}`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {`${window.location.origin}/${result.slug}`}
-          </a> */}
-
-          <a
-            href={`https://www.zeroaheros.ca/api/short-url/${result.slug}`}
-            target="_blank"
-            rel="noopener noreferrer">
-            {`https://www.zeroaheros.ca/api/short-url/${result.slug}`}
-          </a>
-
-        </p>
+        (() => {
+          const fullUrl = `https://www.zeroaheros.ca/short-url/${result.slug}`;
+          return (
+            <p className="success">
+              Lien court:{" "}
+              <a href={fullUrl} target="_blank" rel="noopener noreferrer">
+                {fullUrl}
+              </a>
+            </p>
+          );
+        })()
       )}
+      
     </div>
   );
 }
